@@ -1,3 +1,4 @@
+using MVC;
 using UnityEngine;
 using Zenject;
 
@@ -7,12 +8,14 @@ namespace DI
     {
         #region Editor fields
         [SerializeField] private FixedJoystick _dynamicJoystick = null;
+        [SerializeField] private MVCApplication _mvcApplication = null;
         #endregion
 
         #region Overridden methods
         public override void InstallBindings()
         {
             BindFromInstanceObject(_dynamicJoystick);
+            BindFromInstanceObject(_mvcApplication);
         }
         #endregion
 

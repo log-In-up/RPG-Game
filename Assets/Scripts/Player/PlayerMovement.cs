@@ -1,4 +1,5 @@
 using GameData;
+using MVC;
 using UnityEngine;
 using Zenject;
 
@@ -13,6 +14,7 @@ namespace Player
         #endregion
 
         #region Fields
+        private MVCApplication _mvcApplication;
         private FixedJoystick _fixedJoystick;
         private PlayerData _playerData;
         private Rigidbody _rigidbody;
@@ -21,10 +23,11 @@ namespace Player
 
         #region Zenject
         [Inject]
-        private void Constructor(FixedJoystick fixedJoystick, PlayerData playerData)
+        private void Constructor(FixedJoystick fixedJoystick, PlayerData playerData, MVCApplication mvcApplication)
         {
             _fixedJoystick = fixedJoystick;
             _playerData = playerData;
+            _mvcApplication = mvcApplication;
         }
         #endregion
 

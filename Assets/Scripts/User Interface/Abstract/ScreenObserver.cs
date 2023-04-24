@@ -18,6 +18,8 @@ namespace UserInterface
         #endregion
 
         #region Virtual methods
+        public virtual void Setup() { }
+
         public virtual void Activate()
         {
             _isOpened = true;
@@ -35,7 +37,7 @@ namespace UserInterface
         public void SetScreenData(UICore uiCore)
         {
             _uiCore = uiCore;
-            _isOpened = true;
+            _isOpened = gameObject.activeInHierarchy;
         }
         #endregion
     }

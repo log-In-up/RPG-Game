@@ -1,8 +1,10 @@
+using MVC;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using Zenject;
 
 namespace UserInterface
 {
@@ -15,7 +17,20 @@ namespace UserInterface
         #endregion
 
         #region Fields
+        private MVCApplication _mvcApplication = null;
         private Dictionary<UIScreen, ScreenObserver> _screens = null;
+        #endregion
+
+        #region Zenject
+        [Inject]
+        private void Constructor(MVCApplication mvcApplication)
+        {
+            _mvcApplication = mvcApplication;
+        }
+        #endregion
+
+        #region Properties
+        public MVCApplication MVCApplication => _mvcApplication;
         #endregion
 
         #region MonoBehaiour API
@@ -54,6 +69,8 @@ namespace UserInterface
             foreach (ScreenObserver screen in _screens.Values)
             {
                 screen.SetScreenData(this);
+
+                screen.Setup();
             }
         }
 
