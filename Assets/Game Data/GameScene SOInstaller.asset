@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GameScene SOInstaller
   m_EditorClassIdentifier: 
   _playerData: {fileID: 11400000, guid: 3eaaf7a459f20ae41be22965ba0de050, type: 2}
+  _skills: {fileID: 11400000, guid: 553199c38dd97dd459f6a9ad20f553c1, type: 2}

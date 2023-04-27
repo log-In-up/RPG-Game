@@ -9,11 +9,13 @@ namespace DI
     {
         #region Editor fields
         [SerializeField] private PlayerData _playerData;
+        [SerializeField] private SkillList _skills;
         #endregion
 
         public override void InstallBindings()
         {
             BindFromInstanceObject(_playerData);
+            BindFromInstanceObject(_skills);
         }
 
         #region Bind Methods

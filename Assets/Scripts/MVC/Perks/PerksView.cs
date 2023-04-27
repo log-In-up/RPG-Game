@@ -1,3 +1,4 @@
+using GameData;
 using System.Collections.Generic;
 using UserInterface;
 
@@ -41,13 +42,62 @@ namespace MVC
 
         internal void UpdateNodes()
         {
-            foreach (SkillNode node in _skillNodes)
+            foreach (SkillNode skillNode in _skillNodes)
             {
-                bool value = _perksModel.IsSkillUnlocked(node.SkillType);
+                bool value = _perksModel.IsSkillUnlocked(skillNode.SkillType);
 
-                node.UpdateLockStatus(value);
+                skillNode.UpdateLockStatus(value);
             }
         }
+
+        internal void UpdateNodesPrice()
+        {
+            foreach (SkillNode skillNode in _skillNodes)
+            {
+                SkillData skillData = _perksModel.SkillList.GetSkill(skillNode.SkillType);
+
+                ushort price = skillData.UnlockCost;
+                skillNode.UpdateSkillCost(price);
+            }
+        }
+
+        internal void ActivateNodes()
+        {
+            foreach (SkillNode skillNode in _skillNodes)
+            {
+                skillNode.OnNodeSelection += OnNodeSelection;
+            }
+        }
+
+        internal void DeactivateNodes()
+        {
+            foreach (SkillNode skillNode in _skillNodes)
+            {
+                skillNode.OnNodeSelection -= OnNodeSelection;
+            }
+        }
+
+        internal void LearnSkill()
+        {
+            _perksController.LearnSkill();
+            OnUpdateSkillPoints?.Invoke(_perksModel.SkillPoints);
+
+            UpdateNodes();
+        }
+
+        internal void ForgetSkill()
+        {
+            _perksController.ForgetSkill();
+            OnUpdateSkillPoints?.Invoke(_perksModel.SkillPoints);
+
+            UpdateNodes();
+        }
+
+        internal void UpdateSkillPointsView() => OnUpdateSkillPoints?.Invoke(_perksModel.SkillPoints);
+        #endregion
+
+        #region Methods
+        private void OnNodeSelection(SkillNode skillNode) => _perksController.SetSelectedNode(skillNode);
         #endregion
     }
 }

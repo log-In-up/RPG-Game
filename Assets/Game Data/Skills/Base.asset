@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b01b65a0fd283641a21f9fa1a8b755c, type: 3}
-  m_Name: Dash
+  m_Script: {fileID: 11500000, guid: c033804d616237e4eac9ea4c3e50c852, type: 3}
+  m_Name: Base
   m_EditorClassIdentifier: 
-  <SkillType>k__BackingField: 2
-  <UnlockCost>k__BackingField: 1
-  <PreviousRequiredSkills>k__BackingField: 00000000
-  <NextSkills>k__BackingField: 03000000
-  <DashDistance>k__BackingField: 2
+  <SkillType>k__BackingField: 0
+  <UnlockCost>k__BackingField: 0
+  <PreviousRequiredSkills>k__BackingField: 
+  <NextSkills>k__BackingField: 0100000002000000040000000800000009000000

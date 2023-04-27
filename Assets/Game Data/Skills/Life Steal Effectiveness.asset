@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd50540212381442a96725a1d59da2b, type: 3}
   m_Name: Life Steal Effectiveness
   m_EditorClassIdentifier: 
-  <SkillType>k__BackingField: 0
+  <SkillType>k__BackingField: 7
   <UnlockCost>k__BackingField: 4
   <PreviousRequiredSkills>k__BackingField: 0500000006000000
   <LifeStealEffectiveness>k__BackingField: 1.15

@@ -15,4 +15,5 @@ MonoBehaviour:
   <SkillType>k__BackingField: 5
   <UnlockCost>k__BackingField: 3
   <PreviousRequiredSkills>k__BackingField: 04000000
+  <NextSkills>k__BackingField: 07000000
   <LifeStealFromDamageRatio>k__BackingField: 20

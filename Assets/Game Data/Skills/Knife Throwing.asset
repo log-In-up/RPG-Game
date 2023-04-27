@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fcd18e8aad2f3d4fb0574d9e75afd7b, type: 3}
-  m_Name: Life Steal
+  m_Script: {fileID: 11500000, guid: 05236b7b459c56a4293eb3062a5051bc, type: 3}
+  m_Name: Knife Throwing
   m_EditorClassIdentifier: 
-  <SkillType>k__BackingField: 4
-  <UnlockCost>k__BackingField: 2
+  <SkillType>k__BackingField: 9
+  <UnlockCost>k__BackingField: 1
   <PreviousRequiredSkills>k__BackingField: 00000000
-  <NextSkills>k__BackingField: 0500000006000000
-  <LifeStealFromDamageRatio>k__BackingField: 0
+  <NextSkills>k__BackingField: 0a000000
+  _attacksPerMinute: 40
+  <Knife>k__BackingField: {fileID: 3736085010145860944, guid: 2c69fac6bbda09a4abbbf617505237d3,
+    type: 3}

@@ -1,15 +1,15 @@
 using SkillTree;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace UserInterface
 {
     [DisallowMultipleComponent]
-    public sealed class SkillNode : MonoBehaviour
+    public sealed class SkillNode : MonoBehaviour, IPointerClickHandler
     {
         #region Editor fields
-        [SerializeField] private Button _button = null;
         [SerializeField] private Color _activated, _deactivated;
         [SerializeField] private TextMeshProUGUI _requiredSkillpoints = null;
         [SerializeField] private SkillType _skillType;
@@ -17,24 +17,26 @@ namespace UserInterface
         #endregion
 
         #region Properties
-        public Button Button => _button;
-        public Image Image => _image;
         public SkillType SkillType => _skillType;
         #endregion
 
-        #region MonoBehaviour API
-        private void Awake()
-        {
-            _button = GetComponent<Button>();
-            _image = GetComponent<Image>();
-        }
+        #region Events
+        public delegate void NodeClickDelegate(SkillNode skillNode);
+        public event NodeClickDelegate OnNodeSelection;
         #endregion
 
         #region Public methods
         internal void UpdateLockStatus(bool value)
         {
             _image.color = value ? _activated : _deactivated;
+            _requiredSkillpoints.enabled = !value;
         }
+
+        internal void UpdateSkillCost(ushort value) => _requiredSkillpoints.text = value.ToString();
+        #endregion
+
+        #region Interface realization
+        public void OnPointerClick(PointerEventData eventData) => OnNodeSelection?.Invoke(this);
         #endregion
     }
 }

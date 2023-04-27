@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace GameData
 {
-    [CreateAssetMenu(fileName = "Archery Skill", menuName = "Game Data/Player/Skill/Archery", order = 1)]
+    [CreateAssetMenu(fileName = "Knife Throwing", menuName = "Game Data/Player/Skill/KnifeThrowing", order = 1)]
     public sealed class KnifeThrowingSkill : SkillData
     {
         [SerializeField, Min(0.0f)] private float _attacksPerMinute = 40.0f;

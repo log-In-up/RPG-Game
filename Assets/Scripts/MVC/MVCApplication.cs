@@ -1,4 +1,6 @@
+using GameData;
 using UnityEngine;
+using Zenject;
 
 namespace MVC
 {
@@ -13,15 +15,21 @@ namespace MVC
         private PerksModel _perksModel = null;
         private PerksView _perksView = null;
         private PerksController _perksController = null;
+
+        private SkillList _skillList;
         #endregion
 
         #region Properties
-        public GameModel Model => _model;
-        public GameController Controller => _controller;
-        public GameView View => _view;
         public PerksModel PerksModel => _perksModel;
-        public PerksController PerksController => _perksController;
         public PerksView PerksView => _perksView;
+        #endregion
+
+        #region Zenject
+        [Inject]
+        private void Constructor(SkillList skillList)
+        {
+            _skillList = skillList;
+        }
         #endregion
 
         #region MonoBehaviour API
@@ -31,7 +39,7 @@ namespace MVC
             _view = new GameView();
             _controller = new GameController();
 
-            _perksModel = new PerksModel();
+            _perksModel = new PerksModel(_skillList);
             _perksController = new PerksController(_perksModel);
             _perksView = new PerksView(_perksController, _perksModel);
         }

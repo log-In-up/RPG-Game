@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fcd18e8aad2f3d4fb0574d9e75afd7b, type: 3}
-  m_Name: Life Steal
+  m_Script: {fileID: 11500000, guid: 7e2a7d0350b08f34993cbfe27c960963, type: 3}
+  m_Name: Archery
   m_EditorClassIdentifier: 
-  <SkillType>k__BackingField: 4
-  <UnlockCost>k__BackingField: 2
+  <SkillType>k__BackingField: 8
+  <UnlockCost>k__BackingField: 1
   <PreviousRequiredSkills>k__BackingField: 00000000
-  <NextSkills>k__BackingField: 0500000006000000
-  <LifeStealFromDamageRatio>k__BackingField: 0
+  <NextSkills>k__BackingField: 0a000000
+  _attacksPerMinute: 20
+  <Arrow>k__BackingField: {fileID: 3736085010145860944, guid: 44b66e3258d06494a9f02177774dd7dc,
+    type: 3}
