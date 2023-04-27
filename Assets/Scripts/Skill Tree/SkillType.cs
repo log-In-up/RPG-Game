@@ -3,15 +3,15 @@ namespace SkillTree
     public enum SkillType
     {
         Base,
-        HealthPointsRegeneration,
+        Jump,
         Dash,
         AdvancedDash,
-        LifeSteal,
-        AdvancedLifeSteal,
-        ManaSteal,
-        LifeStealEffectiveness,
+        LifeRestore,
+        AdvancedLifeRestore,
+        ManaRestore,
+        RestoreEffectiveness,
         Bow,
         ThrowKnife,
-        AttackSpeed
+        ProjectileSpeed
     }
 }

@@ -12,8 +12,11 @@ namespace UserInterface
         [SerializeField] private Button _abilities = null;
         [SerializeField] private Button _bowShot = null;
         [SerializeField] private Button _dash = null;
-        [SerializeField] private Button _lifeSteal = null;
+        [SerializeField] private Button _lifeRestore = null;
         [SerializeField] private Button _throwKnife = null;
+        [SerializeField] private Button _jump = null;
+        [SerializeField] private Slider _healthBar = null;
+        [SerializeField] private Slider _manaBar = null;
         #endregion
 
         #region Properties
@@ -21,13 +24,21 @@ namespace UserInterface
         #endregion
 
         #region Overridden methods
+        public override void Setup()
+        {
+            UICore.MVCApplication.GameModel.SetupBars(_healthBar, _manaBar);
+
+            base.Setup();
+        }
+
         public override void Activate()
         {
             _abilities.onClick.AddListener(OnClickAbilities);
             _bowShot.onClick.AddListener(OnClickBowShot);
             _dash.onClick.AddListener(OnClickDash);
-            _lifeSteal.onClick.AddListener(OnClickLifeSteal);
+            _lifeRestore.onClick.AddListener(OnClickRestore);
             _throwKnife.onClick.AddListener(OnClickThrowKnife);
+            _jump.onClick.AddListener(OnClickJump);
 
             ShowAbilitiesButtons();
 
@@ -39,8 +50,9 @@ namespace UserInterface
             _abilities.onClick.RemoveListener(OnClickAbilities);
             _bowShot.onClick.RemoveListener(OnClickBowShot);
             _dash.onClick.RemoveListener(OnClickDash);
-            _lifeSteal.onClick.RemoveListener(OnClickLifeSteal);
+            _lifeRestore.onClick.RemoveListener(OnClickRestore);
             _throwKnife.onClick.RemoveListener(OnClickThrowKnife);
+            _jump.onClick.RemoveListener(OnClickJump);
 
             base.Deactivate();
         }
@@ -55,12 +67,15 @@ namespace UserInterface
             canUseSkill = IsSkillUnlocked(SkillType.Dash) | IsSkillUnlocked(SkillType.AdvancedDash);
             _dash.transform.gameObject.SetActive(canUseSkill);
 
-            canUseSkill = IsSkillUnlocked(SkillType.LifeSteal) | IsSkillUnlocked(SkillType.AdvancedLifeSteal)
-                | IsSkillUnlocked(SkillType.ManaSteal);
-            _lifeSteal.transform.gameObject.SetActive(canUseSkill);
+            canUseSkill = IsSkillUnlocked(SkillType.LifeRestore) | IsSkillUnlocked(SkillType.AdvancedLifeRestore)
+                | IsSkillUnlocked(SkillType.ManaRestore);
+            _lifeRestore.transform.gameObject.SetActive(canUseSkill);
 
             canUseSkill = IsSkillUnlocked(SkillType.ThrowKnife);
             _throwKnife.transform.gameObject.SetActive(canUseSkill);
+
+            canUseSkill = IsSkillUnlocked(SkillType.Jump);
+            _jump.transform.gameObject.SetActive(canUseSkill);
         }
 
         private bool IsSkillUnlocked(SkillType skillType) => UICore.MVCApplication.PerksModel.IsSkillUnlocked(skillType);
@@ -69,25 +84,15 @@ namespace UserInterface
         #region Event handlers
         private void OnClickAbilities() => UICore.OpenScreen(UIScreen.Perks);
 
-        private void OnClickDash()
-        {
+        private void OnClickDash() => UICore.MVCApplication.GameView.OnClickDash();
 
-        }
+        private void OnClickThrowKnife() => UICore.MVCApplication.GameView.OnClickThrowKnife();
 
-        private void OnClickThrowKnife()
-        {
+        private void OnClickBowShot() => UICore.MVCApplication.GameView.OnClickBowShot();
 
-        }
+        private void OnClickJump() => UICore.MVCApplication.GameView.OnCLickJump();
 
-        private void OnClickBowShot()
-        {
-
-        }
-
-        private void OnClickLifeSteal()
-        {
-
-        }
+        private void OnClickRestore() => UICore.MVCApplication.GameView.OnClickRestore();
         #endregion
     }
 }

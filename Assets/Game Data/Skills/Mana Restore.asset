@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd926c096be7c34488b98e62fd18a056, type: 3}
-  m_Name: Attack Speed Up
+  m_Script: {fileID: 11500000, guid: 64af3b62d1e63a540ae409c7548665d9, type: 3}
+  m_Name: Mana Restore
   m_EditorClassIdentifier: 
-  <SkillType>k__BackingField: 10
-  <UnlockCost>k__BackingField: 2
-  <PreviousRequiredSkills>k__BackingField: 0800000009000000
-  <AttackSpeedMultiplier>k__BackingField: 1.25
+  <SkillType>k__BackingField: 6
+  <UnlockCost>k__BackingField: 3
+  <PreviousRequiredSkills>k__BackingField: 04000000
+  <ManaRestore>k__BackingField: 25

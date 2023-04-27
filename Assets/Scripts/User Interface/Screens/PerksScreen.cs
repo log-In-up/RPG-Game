@@ -31,7 +31,6 @@ namespace UserInterface
 
         public override void Activate()
         {
-
             _closeWindow.onClick.AddListener(OnClickCloseWindow);
             _forget.onClick.AddListener(OnClickForget);
             _forgetAll.onClick.AddListener(OnClickForgetAll);

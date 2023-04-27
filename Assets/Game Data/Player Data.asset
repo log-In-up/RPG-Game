@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MovementSpeed>k__BackingField: 3
   <SmoothTime>k__BackingField: 0.15
+  <MaxHealth>k__BackingField: 100
+  <MaxMana>k__BackingField: 100

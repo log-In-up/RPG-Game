@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fcd18e8aad2f3d4fb0574d9e75afd7b, type: 3}
-  m_Name: Advanced Life Steal
+  m_Name: Life Restore
   m_EditorClassIdentifier: 
-  <SkillType>k__BackingField: 5
-  <UnlockCost>k__BackingField: 3
-  <PreviousRequiredSkills>k__BackingField: 04000000
-  <NextSkills>k__BackingField: 07000000
-  <LifeStealFromDamageRatio>k__BackingField: 20
+  <SkillType>k__BackingField: 4
+  <UnlockCost>k__BackingField: 2
+  <PreviousRequiredSkills>k__BackingField: 00000000
+  <LifeRestore>k__BackingField: 20
